@@ -6,15 +6,13 @@ const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-dotenv.load();
-
 const production = process.env.NODE_ENV === 'production';
+
+dotenv.load();
 
 let plugins = [
   new ExtractTextPlugin('bundle.css'),
-  new HTMLPlugin({
-    template: `${__dirname}/app/index.html`
-  }),
+  new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
     __DEBUG__: JSON.stringify(!production)
@@ -42,12 +40,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   sassLoader: {
-    includePaths: [`${__dirname}/app/scss`]
+    includePaths: [`${__dirname}/app/scss/`]
   },
   module: {
     loaders: [
       {
-        test:/\.js$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel'
       },
@@ -56,8 +54,8 @@ module.exports = {
         loader: 'html'
       },
       {
-        test: /\.(woff|tff|svg|eot).*/,
-        loader: 'url?limit=10000&name=font/[hash].[ext]'
+        test: /\.(woff|tt|svg|eot).*/,
+        loader: 'url?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,

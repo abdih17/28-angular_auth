@@ -1,0 +1,12 @@
+$black: #000;
+$white: #fff;
+$dark-grey: #444;
+$light-grey: #888;
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: helvetica;
+  background: $light-grey;
+  color: $white;
+}
