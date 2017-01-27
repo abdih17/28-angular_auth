@@ -5,6 +5,7 @@
 node_modules/
 .babelrc
 .env
+build/
 
 ### Node ###
 # Logs
